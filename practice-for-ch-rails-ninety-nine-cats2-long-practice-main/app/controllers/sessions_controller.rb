@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
         @user = User.find_by_credentials(incoming_username, incoming_password)
         if @user
-            reset_session_token!
+            @user.reset_session_token!
             redirect_to user_index_url
         else
             render :new
